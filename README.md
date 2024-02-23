@@ -124,5 +124,7 @@ So that I can quickly understand and compare different aspects of events.</p>
     <li>And the user should be able to interpret the data regarding event distribution easily</li>
 </ul>
 
+<h2>Serverless Functions</h2>
+<p>Serverless functions are used in this app to securely manage user access, obtain and refresh OAuth2 tokens, and ensure the security of interactions between the React App and the Google Calendar API.
 </body>
 </html>
