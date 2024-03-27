@@ -38,21 +38,18 @@ So that I can control the amount of information displayed based on my preference
     <li>Given the user opens the events app</li>
     <li>When the user navigates to the list of events</li>
     <li>Then each event element should be collapsed by default</li>
-    <li>And the user can expand the event element to view details</li>
 </ul>
 <h4>SCENARIO 2: User can expand an event to see details</h4>
 <ul>
     <li>Given the user is viewing the list of events</li>
     <li>When the user selects an event to expand</li>
     <li>Then the details of the selected event should become visible</li>
-    <li>And the user should be able to collapse the event details if desired</li>
 </ul>
 <h4>SCENARIO 3: User can collapse an event to hide details</h4>
 <ul>
     <li>Given the user has expanded the details of an event</li>
     <li>When the user chooses to collapse the event</li>
     <li>Then the details of the event should be hidden</li>
-    <li>And the event element should return to its collapsed state</li>
 </ul>
 
 <h2>Feature 3: Specify Number of Events</h2>
@@ -70,8 +67,7 @@ So that I can tailor the browsing experience according to my preferences and scr
 <ul>
     <li>Given the user is viewing the list of events</li>
     <li>When the user selects the option to change the number of events displayed</li>
-    <li>Then the user should be able to specify a custom number of events to be shown</li>
-    <li>And the app should display the specified number of events accordingly</li>
+    <li>Then the app should display the specified number of events accordingly</li>
 </ul>
 
 <h2>Feature 4: Use the App When Offline</h2>
