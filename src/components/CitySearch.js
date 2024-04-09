@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import './CitySearch.css';
+
 const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
@@ -39,6 +41,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 
   return (
     <div id="city-search">
+      <label htmlFor="location">Choose your location:</label>
+      <br />
       <input
         type="text"
         className="city"

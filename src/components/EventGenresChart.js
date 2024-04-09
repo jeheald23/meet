@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 
 const EventGenresChart = ({ events }) => {
     const [data, setData] = useState([]);
+    const colors = ['#DD0000', '#00DD00', '#0000DD', '#DDDD00', '#DD00DD'];
 
     useEffect(() => {
         setData(getData());
@@ -27,7 +28,7 @@ const EventGenresChart = ({ events }) => {
             <text
                 x={x}
                 y={y}
-                fill="#8884d8"
+                fill="#fff"
                 textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline="central"
             >
@@ -46,12 +47,17 @@ const EventGenresChart = ({ events }) => {
                     labelLine={false}
                     label={renderCustomizedLabel}
                     outerRadius={150}           
-                />
+                >
+                    {data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                    ))}
+                </Pie>
             </PieChart>
         </ResponsiveContainer>
     );
 };
 
 export default EventGenresChart;
+
 
 
