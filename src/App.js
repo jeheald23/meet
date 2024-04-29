@@ -19,8 +19,10 @@ const App = () => {
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState('');
   const [warningAlert, setWarningAlert] = useState('');
+  const [ isLoading, setIsLoading ] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -57,6 +59,7 @@ const App = () => {
       <CityEventsChart allLocations={allLocations} events={events} />
       </div>
       <EventList events={events}/>
+      {isLoading && <p className="loading">Loading data</p>}
     </div>
   );
 }
