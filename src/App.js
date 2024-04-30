@@ -59,8 +59,8 @@ const App = () => {
       <EventGenresChart events={events} />
       <CityEventsChart allLocations={allLocations} events={events} />
       </div>
-      <EventList events={events}/>
-      {isLoading && <p className="loading">Loading data</p>}
+      {isLoading ? <p className="loading">Loading data</p>: 
+      <EventList events={events}/> }
     </div>
   );
 }
