@@ -1,5 +1,3 @@
-// src/App.js
-
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
@@ -19,7 +17,7 @@ const App = () => {
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState('');
   const [warningAlert, setWarningAlert] = useState('');
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -46,22 +44,24 @@ const App = () => {
   }, [currentCity, currentNOE]);
 
   return (
-    <div className="App">
-      <h1>Meet App</h1>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
-      <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert}/>
-      <div className="alerts-container">
-        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
-        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
+    !isLoading && (
+      <div className="App">
+        <h1>Meet App</h1>
+        <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
+        <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
+        <div className="alerts-container">
+          {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+          {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+          {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
+        </div>
+        <div className='charts-container'>
+          <EventGenresChart events={events} />
+          <CityEventsChart allLocations={allLocations} events={events} />
+        </div>
+        {isLoading ? <p className="loading">Loading data</p> :
+          <EventList events={events} />}
       </div>
-      <div className='charts-container'>
-      <EventGenresChart events={events} />
-      <CityEventsChart allLocations={allLocations} events={events} />
-      </div>
-      {isLoading ? <p className="loading">Loading data</p>: 
-      <EventList events={events}/> }
-    </div>
+    )
   );
 }
 
